@@ -2,6 +2,7 @@ package com.develop.empSalaryManagement.Controller;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -41,10 +42,10 @@ public class EmployeeController {
 
 	}
 
-	@GetMapping("/tax-deduction/{empId}")
-	public TaxDeductionResponse getTaxDeduction(@PathVariable Integer empId) {
-		
-      return   employeeService.getTaxDeduction(empId);
+	@GetMapping("/tax-deduction/{year}")
+	public List<TaxDeductionResponse> getTaxDeduction(@PathVariable String year) {
+	
+      return employeeService.getTaxDeductionForAll(year);
 	}
 	
 	 // Handle validation errors globally
